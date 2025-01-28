@@ -28,6 +28,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
           - windows-latest
@@ -51,6 +52,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
           - windows-latest
@@ -72,6 +74,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
           - windows-latest
@@ -99,6 +102,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
           - windows-latest
@@ -279,6 +283,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           #- macos-14  # no virt: https://github.com/docker/actions-toolkit/issues/317
           - macos-13
           - windows-latest
