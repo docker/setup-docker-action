@@ -33,6 +33,7 @@ jobs:
           - macos-13
           - windows-latest
         version:
+          - ""
           - v27.3.1
           - type=image,tag=27.3.1
     steps:
