@@ -305,3 +305,27 @@ jobs:
           docker info
         env:
           DOCKER_HOST: ${{ steps.setup_docker.outputs.tcp }}
+
+  undock-regctl-version:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        undock_version:
+          - ''
+          - v0.9.0
+        regctl_version:
+          - ''
+          - v0.8.2
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          version: type=image
+        env:
+          UNDOCK_VERSION: ${{ matrix.undock_version }}
+          REGCTL_VERSION: ${{ matrix.regctl_version }}
