@@ -5,9 +5,16 @@ import * as core from '@actions/core';
 import * as actionsToolkit from '@docker/actions-toolkit';
 import {Install} from '@docker/actions-toolkit/lib/docker/install';
 import {Docker} from '@docker/actions-toolkit/lib/docker/docker';
+import {Install as RegclientInstall} from '@docker/actions-toolkit/lib/regclient/install';
+import {Regctl} from '@docker/actions-toolkit/lib/regclient/regctl';
+import {Install as UndockInstall} from '@docker/actions-toolkit/lib/undock/install';
+import {Undock} from '@docker/actions-toolkit/lib/undock/undock';
 
 import * as context from './context';
 import * as stateHelper from './state-helper';
+
+const regctlDefaultVersion = 'v0.8.3';
+const undockDefaultVersion = 'v0.10.0';
 
 actionsToolkit.run(
   // main
@@ -17,6 +24,29 @@ actionsToolkit.run(
 
     if (input.context == 'default') {
       throw new Error(`'default' context cannot be used.`);
+    }
+
+    if (input.source.type === 'image') {
+      await core.group(`Download and install regctl`, async () => {
+        const regclientInstall = new RegclientInstall();
+        const regclientBinPath = await regclientInstall.download(
+          process.env.REGCTL_VERSION && process.env.REGCTL_VERSION.trim()
+            ? process.env.REGCTL_VERSION
+            : regctlDefaultVersion,
+          true
+        );
+        await regclientInstall.install(regclientBinPath);
+      });
+      await core.group(`Download and install undock`, async () => {
+        const undockInstall = new UndockInstall();
+        const undockBinPath = await undockInstall.download(
+          process.env.UNDOCK_VERSION && process.env.UNDOCK_VERSION.trim()
+            ? process.env.UNDOCK_VERSION
+            : undockDefaultVersion,
+          true
+        );
+        await undockInstall.install(undockBinPath);
+      });
     }
 
     let tcpPort: number | undefined;
@@ -32,7 +62,9 @@ actionsToolkit.run(
       rootless: input.rootless,
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig,
-      localTCPPort: tcpPort
+      localTCPPort: tcpPort,
+      regctl: new Regctl(),
+      undock: new Undock()
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.source) {
@@ -71,7 +103,9 @@ actionsToolkit.run(
       return;
     }
     const install = new Install({
-      runDir: stateHelper.runDir
+      runDir: stateHelper.runDir,
+      regctl: new Regctl(),
+      undock: new Undock()
     });
     await install.tearDown();
   }
