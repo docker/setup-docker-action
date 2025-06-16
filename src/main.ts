@@ -6,9 +6,7 @@ import * as actionsToolkit from '@docker/actions-toolkit';
 import {Install} from '@docker/actions-toolkit/lib/docker/install';
 import {Docker} from '@docker/actions-toolkit/lib/docker/docker';
 import {Install as RegclientInstall} from '@docker/actions-toolkit/lib/regclient/install';
-import {Regctl} from '@docker/actions-toolkit/lib/regclient/regctl';
 import {Install as UndockInstall} from '@docker/actions-toolkit/lib/undock/install';
-import {Undock} from '@docker/actions-toolkit/lib/undock/undock';
 
 import * as context from './context';
 import * as stateHelper from './state-helper';
@@ -62,9 +60,7 @@ actionsToolkit.run(
       rootless: input.rootless,
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig,
-      localTCPPort: tcpPort,
-      regctl: new Regctl(),
-      undock: new Undock()
+      localTCPPort: tcpPort
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.source) {
@@ -103,9 +99,7 @@ actionsToolkit.run(
       return;
     }
     const install = new Install({
-      runDir: stateHelper.runDir,
-      regctl: new Regctl(),
-      undock: new Undock()
+      runDir: stateHelper.runDir
     });
     await install.tearDown();
   }
