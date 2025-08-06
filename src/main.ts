@@ -1,5 +1,4 @@
 import * as crypto from 'crypto';
-import os from 'os';
 import path from 'path';
 import * as core from '@actions/core';
 import * as actionsToolkit from '@docker/actions-toolkit';
@@ -18,8 +17,7 @@ actionsToolkit.run(
   // main
   async () => {
     const input: context.Inputs = context.getInputs();
-    const runBasedir = input.runtimeBasedir || path.join(os.homedir(), `setup-docker-action`);
-    const runDir = path.join(runBasedir, `run-${crypto.randomUUID().slice(0, 8)}`);
+    const runDir = path.join(input.runtimeBasedir, `run-${crypto.randomUUID().slice(0, 8)}`);
 
     if (input.context == 'default') {
       throw new Error(`'default' context cannot be used.`);
