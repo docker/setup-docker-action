@@ -11,6 +11,7 @@ export interface Inputs {
   context: string;
   setHost: boolean;
   rootless: boolean;
+  runtimeBasedir?: string;
 }
 
 export function getInputs(): Inputs {
@@ -27,7 +28,8 @@ export function getInputs(): Inputs {
     tcpPort: Util.getInputNumber('tcp-port'),
     context: core.getInput('context'),
     setHost: core.getBooleanInput('set-host'),
-    rootless: core.getBooleanInput('rootless')
+    rootless: core.getBooleanInput('rootless'),
+    runtimeBasedir: core.getInput('runtime-basedir')
   };
 }
 

@@ -121,8 +121,8 @@ The following inputs can be used as `step.with` keys
 | `tcp-port`      | Number |                       | TCP port to expose the Docker API locally                                                                                   |
 | `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
 | `set-host`      | Bool   | `false`               | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
-| `rootless`      | Bool   | `false`               | Start daemon in rootless mode                                                                                               |
-
+| `rootless`      | Bool   | `false`               | Start daemon in rootless mode                                                                                              |
+| `runtime-basedir`      | String   | `<home>/setup-docker-action`               | Docker runtime base directory   
 ### inputs.version
 
 By default, the latest stable version of Docker is fetched from download.docker.com.

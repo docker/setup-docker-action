@@ -18,7 +18,8 @@ actionsToolkit.run(
   // main
   async () => {
     const input: context.Inputs = context.getInputs();
-    const runDir = path.join(os.homedir(), `setup-docker-action-${crypto.randomUUID().slice(0, 8)}`);
+    const runBasedir = input.runtimeBasedir || path.join(os.homedir(), `setup-docker-action`);
+    const runDir = path.join(runBasedir, `run-${crypto.randomUUID().slice(0, 8)}`);
 
     if (input.context == 'default') {
       throw new Error(`'default' context cannot be used.`);

@@ -31,6 +31,9 @@ inputs:
     description: 'Enable Docker rootless mode'
     default: 'false'
     required: false
+  runtime-basedir:
+    description: 'Docker runtime base directory'
+    required: false
 
 outputs:
   sock:
