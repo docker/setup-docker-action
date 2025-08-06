@@ -113,16 +113,17 @@ jobs:
 
 The following inputs can be used as `step.with` keys
 
-| Name            | Type   | Default               | Description                                                                                                                 |
-|-----------------|--------|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| `version`       | String | `latest`              | Docker version to use. See [inputs.version](#inputs.version).                                                               |
-| `channel`       | String | `stable`              | Docker CE [channel](https://download.docker.com/linux/static/) (`stable` or `test`). Only applicable to `type=archive`      |
-| `daemon-config` | String |                       | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
-| `tcp-port`      | Number |                       | TCP port to expose the Docker API locally                                                                                   |
-| `context`       | String | `setup-docker-action` | Docker context name.                                                                                                        |
-| `set-host`      | Bool   | `false`               | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
-| `rootless`      | Bool   | `false`               | Start daemon in rootless mode                                                                                              |
-| `runtime-basedir`      | String   | `<home>/setup-docker-action`               | Docker runtime base directory   
+| Name              | Type   | Default                      | Description                                                                                                                 |
+|-------------------|--------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| `version`         | String | `latest`                     | Docker version to use. See [inputs.version](#inputs.version).                                                               |
+| `channel`         | String | `stable`                     | Docker CE [channel](https://download.docker.com/linux/static/) (`stable` or `test`). Only applicable to `type=archive`      |
+| `daemon-config`   | String |                              | [Docker daemon JSON configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) |
+| `tcp-port`        | Number |                              | TCP port to expose the Docker API locally                                                                                   |
+| `context`         | String | `setup-docker-action`        | Docker context name.                                                                                                        |
+| `set-host`        | Bool   | `false`                      | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
+| `rootless`        | Bool   | `false`                      | Start daemon in rootless mode                                                                                               |
+| `runtime-basedir` | String | `<home>/setup-docker-action` | Docker runtime base directory                                                                                               |
+
 ### inputs.version
 
 By default, the latest stable version of Docker is fetched from download.docker.com.
