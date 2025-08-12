@@ -39,7 +39,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -60,7 +60,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -82,7 +82,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -110,7 +110,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -128,7 +128,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -148,7 +148,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Uninstall containerd
         if: matrix.containerd == 'containerd-tarball'
@@ -193,7 +193,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -227,7 +227,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -248,7 +248,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -265,7 +265,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
@@ -291,7 +291,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         id: setup_docker
@@ -320,7 +320,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       -
         name: Set up Docker
         uses: ./
