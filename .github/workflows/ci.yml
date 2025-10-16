@@ -329,3 +329,23 @@ jobs:
         env:
           UNDOCK_VERSION: ${{ matrix.undock_version }}
           REGCTL_VERSION: ${{ matrix.regctl_version }}
+
+  docker-29:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-13
+          - windows-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v5
+      -
+        name: Set up Docker
+        uses: ./
+        with:
+          version: v29.0.0-rc.1
+          channel: test
