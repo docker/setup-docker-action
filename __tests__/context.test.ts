@@ -34,6 +34,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -57,6 +58,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -76,6 +78,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: true,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -97,6 +100,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -116,6 +120,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -136,6 +141,7 @@ describe('getInputs', () => {
         daemonConfig: '',
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -156,6 +162,7 @@ describe('getInputs', () => {
         daemonConfig: '',
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -175,6 +182,7 @@ describe('getInputs', () => {
         daemonConfig: '',
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -194,6 +202,7 @@ describe('getInputs', () => {
         daemonConfig: '',
         rootless: true,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
     [
@@ -216,6 +225,7 @@ describe('getInputs', () => {
         rootless: false,
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
+        githubToken: '',
       } as context.Inputs
     ],
   ])(

@@ -14,6 +14,7 @@ export interface Inputs {
   setHost: boolean;
   rootless: boolean;
   runtimeBasedir: string;
+  githubToken: string;
 }
 
 export function getInputs(): Inputs {
@@ -31,7 +32,8 @@ export function getInputs(): Inputs {
     context: core.getInput('context'),
     setHost: core.getBooleanInput('set-host'),
     rootless: core.getBooleanInput('rootless'),
-    runtimeBasedir: core.getInput('runtime-basedir') || path.join(os.homedir(), `setup-docker-action`)
+    runtimeBasedir: core.getInput('runtime-basedir') || path.join(os.homedir(), `setup-docker-action`),
+    githubToken: core.getInput('github-token')
   };
 }
 
