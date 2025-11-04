@@ -34,6 +34,10 @@ inputs:
   runtime-basedir:
     description: 'Docker runtime base directory'
     required: false
+  github-token:
+    description: "GitHub Token used to get releases and download assets"
+    default: ${{ github.token }}
+    required: false
 
 outputs:
   sock:

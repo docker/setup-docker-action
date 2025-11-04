@@ -25,7 +25,7 @@ actionsToolkit.run(
 
     if (input.source.type === 'image') {
       await core.group(`Download and install regctl`, async () => {
-        const regclientInstall = new RegclientInstall();
+        const regclientInstall = new RegclientInstall({githubToken: input.githubToken});
         const regclientBinPath = await regclientInstall.download(
           process.env.REGCTL_VERSION && process.env.REGCTL_VERSION.trim()
             ? process.env.REGCTL_VERSION
@@ -35,7 +35,7 @@ actionsToolkit.run(
         await regclientInstall.install(regclientBinPath);
       });
       await core.group(`Download and install undock`, async () => {
-        const undockInstall = new UndockInstall();
+        const undockInstall = new UndockInstall({githubToken: input.githubToken});
         const undockBinPath = await undockInstall.download(
           process.env.UNDOCK_VERSION && process.env.UNDOCK_VERSION.trim()
             ? process.env.UNDOCK_VERSION
@@ -59,7 +59,8 @@ actionsToolkit.run(
       rootless: input.rootless,
       contextName: input.context || 'setup-docker-action',
       daemonConfig: input.daemonConfig,
-      localTCPPort: tcpPort
+      localTCPPort: tcpPort,
+      githubToken: input.githubToken
     });
     let toolDir;
     if (!(await Docker.isAvailable()) || input.source) {
