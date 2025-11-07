@@ -123,6 +123,7 @@ The following inputs can be used as `step.with` keys
 | `set-host`        | Bool   | `false`                      | Set `DOCKER_HOST` environment variable to docker socket path.                                                               |
 | `rootless`        | Bool   | `false`                      | Start daemon in rootless mode                                                                                               |
 | `runtime-basedir` | String | `<home>/setup-docker-action` | Docker runtime base directory                                                                                               |
+| `github-token`    | String | `${{ github.token }}`        | GitHub.com token used to get releases and download assets. Only required if action is used on GitHub Enterprise.            |
 
 ### inputs.version
 
