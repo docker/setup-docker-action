@@ -72,12 +72,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@actions/core@npm:2.0.1"
+  dependencies:
+    "@actions/exec": ^2.0.0
+    "@actions/http-client": ^3.0.0
+  checksum: 7f15d4b75645a8b35f2ab0f3eb4e699625f3b73ee25d7dec81214f4ebe88ba68aeb9233fc6fda3cad03dd5ae49b6593f1f92885cf4797fa7a95243913b1dd4c1
+  languageName: node
+  linkType: hard
+
 "@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.0.1, @actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
   dependencies:
     "@actions/io": ^1.0.1
   checksum: d976e66dd51ab03d76a143da8e1406daa1bcdee06046168e6e0bec681c87a12999eefaad7a81cb81f28e4190610f55a58b8458ae4b82cbaaba13200490f4e8c2
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@actions/exec@npm:2.0.0"
+  dependencies:
+    "@actions/io": ^2.0.0
+  checksum: 001e4139129fce56459c7fa3970d50e85dc9bffef5fe451312ff1277f1f18d553d221012a199d58b3a5c2198bd0c71b2060dd28e52ebfeaf5a91331347c93208
   languageName: node
   linkType: hard
 
@@ -3704,7 +3723,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docker-setup-docker@workspace:."
   dependencies:
-    "@actions/core": ^1.11.1
+    "@actions/core": ^2.0.1
     "@docker/actions-toolkit": ^0.69.0
     "@eslint/compat": ^2.0.0
     "@eslint/eslintrc": ^3.3.3
