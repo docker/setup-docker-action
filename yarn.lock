@@ -1137,9 +1137,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docker/actions-toolkit@npm:^0.71.0":
-  version: 0.71.0
-  resolution: "@docker/actions-toolkit@npm:0.71.0"
+"@docker/actions-toolkit@npm:^0.72.0":
+  version: 0.72.0
+  resolution: "@docker/actions-toolkit@npm:0.72.0"
   dependencies:
     "@actions/artifact": ^5.0.1
     "@actions/cache": ^5.0.1
@@ -1153,9 +1153,9 @@ __metadata:
     "@octokit/core": ^5.2.2
     "@octokit/plugin-rest-endpoint-methods": ^10.4.1
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/sign": ^4.0.1
-    "@sigstore/tuf": ^4.0.0
-    "@sigstore/verify": ^3.0.0
+    "@sigstore/sign": ^4.1.0
+    "@sigstore/tuf": ^4.0.1
+    "@sigstore/verify": ^3.1.0
     async-retry: ^1.3.3
     csv-parse: ^6.1.0
     gunzip-maybe: ^1.4.2
@@ -1166,7 +1166,7 @@ __metadata:
     semver: ^7.7.3
     tar-stream: ^3.1.7
     tmp: ^0.2.5
-  checksum: 1019f71f2b472e19c840a51ed0b887d276a6f350e8e14a54a2353e659cbcfa477debe20bdf2cc3a4ada2f138027beed109ab3b45f1abd2a9005c732c3430c4b0
+  checksum: 115d8bb81f76819385d932d0145fd8f990c4d43d5f695d479420d8866d9b1f7c1e8c859b6f16ebe239097c9098b1f8f4e76681c3dc42687936e003bc5c06bcc7
   languageName: node
   linkType: hard
 
@@ -2189,10 +2189,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/core@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@sigstore/core@npm:3.0.0"
-  checksum: d3650b6089b0d1411677fc8ddb32c2e494a288968efd99c9c6b18d4447df1265f6c3b6585e1c88997f863015b03bc83b92e63d83d7625280b0f64e18ad74c20c
+"@sigstore/core@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@sigstore/core@npm:3.1.0"
+  checksum: 09e5d9c800821a10a8b0deeadb05376a536b1a0134044d823f5a7184f487c1a2874a6764d7f2e71108cfb2376faa7beb9cb9ba857daf27dc677455302b2738c0
   languageName: node
   linkType: hard
 
@@ -2203,38 +2203,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/sign@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@sigstore/sign@npm:4.0.1"
+"@sigstore/sign@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@sigstore/sign@npm:4.1.0"
   dependencies:
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/core": ^3.0.0
+    "@sigstore/core": ^3.1.0
     "@sigstore/protobuf-specs": ^0.5.0
-    make-fetch-happen: ^15.0.2
-    proc-log: ^5.0.0
+    make-fetch-happen: ^15.0.3
+    proc-log: ^6.1.0
     promise-retry: ^2.0.1
-  checksum: 40c7183b779ac27f3c7a032ae648e29a067826f19129719b817c3d3ebf08090bef6562278a46db2ac9701f94bfe24ea088868372cb23875b8a2e96fcabefd27b
+  checksum: 24c3b66a391142ffb65dc5b632c588455b1b9bafb4204cad2bd1e87985a712a5b11115cca6bf5d7de26a55488a8caf97575f9fd33babdb6d470009a0767a9461
   languageName: node
   linkType: hard
 
-"@sigstore/tuf@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@sigstore/tuf@npm:4.0.0"
+"@sigstore/tuf@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@sigstore/tuf@npm:4.0.1"
   dependencies:
     "@sigstore/protobuf-specs": ^0.5.0
-    tuf-js: ^4.0.0
-  checksum: e5766239120c16cab983354d147bdea52ee9eefc5f7cddbf9b30bf56fb9f101e20b2c0fd223a1a669f2c1ef51ad8d9bad8c686f7be89abc6cfbdc9d8a11d730a
+    tuf-js: ^4.1.0
+  checksum: 380604538bfdbcfd14ec2495e0c065c93ffa1d5e52d0a314bf2f89d8e5a999f22ce74425acde8195808126c29880a6fcd88837aa5ec485ebfb347dbb5a9d0634
   languageName: node
   linkType: hard
 
-"@sigstore/verify@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@sigstore/verify@npm:3.0.0"
+"@sigstore/verify@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@sigstore/verify@npm:3.1.0"
   dependencies:
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/core": ^3.0.0
+    "@sigstore/core": ^3.1.0
     "@sigstore/protobuf-specs": ^0.5.0
-  checksum: 336d8af044691e7d342fedfd7748c9815974bfac72924bdc541889d6b5a3e844c568f8c8c7c3e3d0594e7e405610d33a11199d6dbbe9370005bd83f7a0df3500
+  checksum: fdb1e008fe346eeaf31ee58bfb5b7e1db1b292fe14f3eaf001e2d67eb3aa3af1637c2e17d87ceaf62d5fcee599a0ec30198480c91559b694bfe963e81d09879e
   languageName: node
   linkType: hard
 
@@ -3638,7 +3638,7 @@ __metadata:
   resolution: "docker-setup-docker@workspace:."
   dependencies:
     "@actions/core": ^2.0.1
-    "@docker/actions-toolkit": ^0.71.0
+    "@docker/actions-toolkit": ^0.72.0
     "@eslint/compat": ^2.0.0
     "@eslint/eslintrc": ^3.3.3
     "@eslint/js": ^9.39.2
@@ -5486,7 +5486,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-fetch-happen@npm:^15.0.1, make-fetch-happen@npm:^15.0.2":
+"make-fetch-happen@npm:^15.0.1, make-fetch-happen@npm:^15.0.3":
   version: 15.0.3
   resolution: "make-fetch-happen@npm:15.0.3"
   dependencies:
@@ -6134,14 +6134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proc-log@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "proc-log@npm:5.0.0"
-  checksum: c78b26ecef6d5cce4a7489a1e9923d7b4b1679028c8654aef0463b27f4a90b0946cd598f55799da602895c52feb085ec76381d007ab8dcceebd40b89c2f9dfe0
-  languageName: node
-  linkType: hard
-
-"proc-log@npm:^6.0.0":
+"proc-log@npm:^6.0.0, proc-log@npm:^6.1.0":
   version: 6.1.0
   resolution: "proc-log@npm:6.1.0"
   checksum: ac450ff8244e95b0c9935b52d629fef92ae69b7e39aea19972a8234259614d644402dd62ce9cb094f4a637d8a4514cba90c1456ad785a40ad5b64d502875a817
@@ -6891,7 +6884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tuf-js@npm:^4.0.0":
+"tuf-js@npm:^4.1.0":
   version: 4.1.0
   resolution: "tuf-js@npm:4.1.0"
   dependencies:
