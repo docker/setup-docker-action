@@ -71,6 +71,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@actions/core@npm:2.0.2"
+  dependencies:
+    "@actions/exec": ^2.0.0
+    "@actions/http-client": ^3.0.1
+  checksum: 349858216a12fdad13ded50738c683c6744f8a45b950ca8cc2cac5cbe410d4e6577b3c9aa00923dbf10c23fde7a98ffc47c11177eacaa90b27d019a1ec5fed37
+  languageName: node
+  linkType: hard
+
 "@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
@@ -140,6 +150,16 @@ __metadata:
     tunnel: ^0.0.6
     undici: ^5.28.5
   checksum: 840ec7a4c224a3945d1958b56b01fb870ae19c1d1502b8f0d1a7c291bbe061aff50b6c3bbf6c09b6afa3b56386ec09ecd16029c6fcb3016fb9e21cd1ab5f49fc
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@actions/http-client@npm:3.0.1"
+  dependencies:
+    tunnel: ^0.0.6
+    undici: ^5.28.5
+  checksum: 421ecc5a7ed288854eb4f30b7b156a4ab43150ce4d5362be743ed142873af5f01581ac4840df68615155a6e49c5977e725bc239db32099b33814f3105b96f388
   languageName: node
   linkType: hard
 
@@ -3637,7 +3657,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docker-setup-docker@workspace:."
   dependencies:
-    "@actions/core": ^2.0.1
+    "@actions/core": ^2.0.2
     "@docker/actions-toolkit": ^0.71.0
     "@eslint/compat": ^2.0.0
     "@eslint/eslintrc": ^3.3.3
