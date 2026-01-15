@@ -12,13 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/artifact@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@actions/artifact@npm:5.0.1"
+"@actions/artifact@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@actions/artifact@npm:5.0.2"
   dependencies:
     "@actions/core": ^2.0.0
     "@actions/github": ^6.0.1
-    "@actions/http-client": ^3.0.0
+    "@actions/http-client": ^3.0.1
     "@azure/storage-blob": ^12.29.1
     "@octokit/core": ^5.2.1
     "@octokit/plugin-request-log": ^1.0.4
@@ -29,29 +29,29 @@ __metadata:
     archiver: ^7.0.1
     jwt-decode: ^3.1.2
     unzip-stream: ^0.3.1
-  checksum: b3f1620cb29bea862cca72f0ec31ae8baa2f39ecc4f178a11fd2a78a8536bbbb8d97ce1cb90610285530fa9b4b47c63b2b5ed712a719f2b3ff67a747eb2f18f1
+  checksum: 0876dc0ddc335cfabaf00ff1be032a803992800e2f8021937a3e12c4ec2c1618c8c152f4a4ce7a91ada03a3a2fd17014945f0f2f0a251fa2ce6e5aafb480aecc
   languageName: node
   linkType: hard
 
-"@actions/cache@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@actions/cache@npm:5.0.1"
+"@actions/cache@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@actions/cache@npm:5.0.2"
   dependencies:
     "@actions/core": ^2.0.0
     "@actions/exec": ^2.0.0
     "@actions/glob": ^0.5.0
-    "@actions/http-client": ^3.0.0
+    "@actions/http-client": ^3.0.1
     "@actions/io": ^2.0.0
     "@azure/abort-controller": ^1.1.0
     "@azure/core-rest-pipeline": ^1.22.0
     "@azure/storage-blob": ^12.29.1
     "@protobuf-ts/runtime-rpc": ^2.11.1
     semver: ^6.3.1
-  checksum: ea579ac2206d038aec38b230c01c734b58244a708ad46c25ef01c5bf8759e4ed158c847eb23535725b7fab52b79c127fd074b1bb4a0a02f9179321f76b0d3faf
+  checksum: a44d712b14987ce7d96f16d218aca336c84d8cbf548bc66894d6199f09a60f03df0ee6fed25de47630a6dce5c111aa4506e324fc1824e9d28a4e23f6ad989fd6
   languageName: node
   linkType: hard
 
-"@actions/core@npm:^1.11.1, @actions/core@npm:^1.9.1":
+"@actions/core@npm:^1.9.1":
   version: 1.11.1
   resolution: "@actions/core@npm:1.11.1"
   dependencies:
@@ -71,7 +71,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
+"@actions/core@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@actions/core@npm:2.0.2"
+  dependencies:
+    "@actions/exec": ^2.0.0
+    "@actions/http-client": ^3.0.1
+  checksum: 349858216a12fdad13ded50738c683c6744f8a45b950ca8cc2cac5cbe410d4e6577b3c9aa00923dbf10c23fde7a98ffc47c11177eacaa90b27d019a1ec5fed37
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
   dependencies:
@@ -101,6 +111,21 @@ __metadata:
     "@octokit/request-error": ^5.1.1
     undici: ^5.28.5
   checksum: ba6a162a5727dea2f3f3fc450e02c5b336ceb65a0e26ba9ad9c62b20f4f5b2625ca347a9311a4905ef3c92378ca022caba841a283cb7f2e4175d79e3d1ecaf12
+  languageName: node
+  linkType: hard
+
+"@actions/github@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@actions/github@npm:7.0.0"
+  dependencies:
+    "@actions/http-client": ^3.0.1
+    "@octokit/core": ^5.0.1
+    "@octokit/plugin-paginate-rest": ^9.2.2
+    "@octokit/plugin-rest-endpoint-methods": ^10.4.0
+    "@octokit/request": ^8.4.1
+    "@octokit/request-error": ^5.1.1
+    undici: ^5.28.5
+  checksum: 829c6402f927839714692f4e1f48359d306be0fd21ef3843feaf3db6541e5e7f85447b0bf794beeebad0b8f4a2644f7f92143cb4a8311541b29f5ddfc585cec1
   languageName: node
   linkType: hard
 
@@ -143,7 +168,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/io@npm:^1.0.1, @actions/io@npm:^1.1.1":
+"@actions/http-client@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@actions/http-client@npm:3.0.1"
+  dependencies:
+    tunnel: ^0.0.6
+    undici: ^5.28.5
+  checksum: 421ecc5a7ed288854eb4f30b7b156a4ab43150ce4d5362be743ed142873af5f01581ac4840df68615155a6e49c5977e725bc239db32099b33814f3105b96f388
+  languageName: node
+  linkType: hard
+
+"@actions/io@npm:^1.0.1":
   version: 1.1.3
   resolution: "@actions/io@npm:1.1.3"
   checksum: 42841ac2b8a7afb29456b9edb5534dbe00148893c794bdbc17d29166847c51c884e2a7c087a489a428250a78e7b54bc761ba3b55eb2f97d9600e9193b60caf0b
@@ -157,16 +192,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/tool-cache@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "@actions/tool-cache@npm:2.0.2"
+"@actions/tool-cache@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@actions/tool-cache@npm:3.0.0"
   dependencies:
-    "@actions/core": ^1.11.1
-    "@actions/exec": ^1.0.0
-    "@actions/http-client": ^2.0.1
-    "@actions/io": ^1.1.1
+    "@actions/core": ^2.0.1
+    "@actions/exec": ^2.0.0
+    "@actions/http-client": ^3.0.1
+    "@actions/io": ^2.0.0
     semver: ^6.1.0
-  checksum: c2bab4297be752bdda9dd61f8159a201ad0d37d026134b960f1edcc9418a80387f44d1f24a070fe992c44dcfc28a152f70600e76669bb0578132789a6f37a596
+  checksum: 662c6b494d9b62a252c489f13711317cc1f51fb2c2135ee8088e515c00ae6fda963e33bc4ce671556206990219cbafe5d726c7cf14e89ce7e760e767027296d9
   languageName: node
   linkType: hard
 
@@ -1137,25 +1172,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docker/actions-toolkit@npm:^0.71.0":
-  version: 0.71.0
-  resolution: "@docker/actions-toolkit@npm:0.71.0"
+"@docker/actions-toolkit@npm:^0.75.0":
+  version: 0.75.0
+  resolution: "@docker/actions-toolkit@npm:0.75.0"
   dependencies:
-    "@actions/artifact": ^5.0.1
-    "@actions/cache": ^5.0.1
-    "@actions/core": ^2.0.1
+    "@actions/artifact": ^5.0.2
+    "@actions/cache": ^5.0.2
+    "@actions/core": ^2.0.2
     "@actions/exec": ^2.0.0
-    "@actions/github": ^6.0.1
-    "@actions/http-client": ^3.0.0
+    "@actions/github": ^7.0.0
+    "@actions/http-client": ^3.0.1
     "@actions/io": ^2.0.0
-    "@actions/tool-cache": ^2.0.2
+    "@actions/tool-cache": ^3.0.0
     "@azure/storage-blob": ^12.29.1
     "@octokit/core": ^5.2.2
     "@octokit/plugin-rest-endpoint-methods": ^10.4.1
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/sign": ^4.0.1
-    "@sigstore/tuf": ^4.0.0
-    "@sigstore/verify": ^3.0.0
+    "@sigstore/sign": ^4.1.0
+    "@sigstore/tuf": ^4.0.1
+    "@sigstore/verify": ^3.1.0
     async-retry: ^1.3.3
     csv-parse: ^6.1.0
     gunzip-maybe: ^1.4.2
@@ -1166,7 +1201,7 @@ __metadata:
     semver: ^7.7.3
     tar-stream: ^3.1.7
     tmp: ^0.2.5
-  checksum: 1019f71f2b472e19c840a51ed0b887d276a6f350e8e14a54a2353e659cbcfa477debe20bdf2cc3a4ada2f138027beed109ab3b45f1abd2a9005c732c3430c4b0
+  checksum: 56f9315d42612667f9c58694bce3a236d70ce544f39129755d63e2bdbb973e3aa0ea0a0add142c21264646b0e3c3c7bf544f2eed2518b5060020e80e9db953b0
   languageName: node
   linkType: hard
 
@@ -2189,10 +2224,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/core@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@sigstore/core@npm:3.0.0"
-  checksum: d3650b6089b0d1411677fc8ddb32c2e494a288968efd99c9c6b18d4447df1265f6c3b6585e1c88997f863015b03bc83b92e63d83d7625280b0f64e18ad74c20c
+"@sigstore/core@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@sigstore/core@npm:3.1.0"
+  checksum: 09e5d9c800821a10a8b0deeadb05376a536b1a0134044d823f5a7184f487c1a2874a6764d7f2e71108cfb2376faa7beb9cb9ba857daf27dc677455302b2738c0
   languageName: node
   linkType: hard
 
@@ -2203,38 +2238,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sigstore/sign@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@sigstore/sign@npm:4.0.1"
+"@sigstore/sign@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@sigstore/sign@npm:4.1.0"
   dependencies:
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/core": ^3.0.0
+    "@sigstore/core": ^3.1.0
     "@sigstore/protobuf-specs": ^0.5.0
-    make-fetch-happen: ^15.0.2
-    proc-log: ^5.0.0
+    make-fetch-happen: ^15.0.3
+    proc-log: ^6.1.0
     promise-retry: ^2.0.1
-  checksum: 40c7183b779ac27f3c7a032ae648e29a067826f19129719b817c3d3ebf08090bef6562278a46db2ac9701f94bfe24ea088868372cb23875b8a2e96fcabefd27b
+  checksum: 24c3b66a391142ffb65dc5b632c588455b1b9bafb4204cad2bd1e87985a712a5b11115cca6bf5d7de26a55488a8caf97575f9fd33babdb6d470009a0767a9461
   languageName: node
   linkType: hard
 
-"@sigstore/tuf@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@sigstore/tuf@npm:4.0.0"
+"@sigstore/tuf@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@sigstore/tuf@npm:4.0.1"
   dependencies:
     "@sigstore/protobuf-specs": ^0.5.0
-    tuf-js: ^4.0.0
-  checksum: e5766239120c16cab983354d147bdea52ee9eefc5f7cddbf9b30bf56fb9f101e20b2c0fd223a1a669f2c1ef51ad8d9bad8c686f7be89abc6cfbdc9d8a11d730a
+    tuf-js: ^4.1.0
+  checksum: 380604538bfdbcfd14ec2495e0c065c93ffa1d5e52d0a314bf2f89d8e5a999f22ce74425acde8195808126c29880a6fcd88837aa5ec485ebfb347dbb5a9d0634
   languageName: node
   linkType: hard
 
-"@sigstore/verify@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@sigstore/verify@npm:3.0.0"
+"@sigstore/verify@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@sigstore/verify@npm:3.1.0"
   dependencies:
     "@sigstore/bundle": ^4.0.0
-    "@sigstore/core": ^3.0.0
+    "@sigstore/core": ^3.1.0
     "@sigstore/protobuf-specs": ^0.5.0
-  checksum: 336d8af044691e7d342fedfd7748c9815974bfac72924bdc541889d6b5a3e844c568f8c8c7c3e3d0594e7e405610d33a11199d6dbbe9370005bd83f7a0df3500
+  checksum: fdb1e008fe346eeaf31ee58bfb5b7e1db1b292fe14f3eaf001e2d67eb3aa3af1637c2e17d87ceaf62d5fcee599a0ec30198480c91559b694bfe963e81d09879e
   languageName: node
   linkType: hard
 
@@ -3638,7 +3673,7 @@ __metadata:
   resolution: "docker-setup-docker@workspace:."
   dependencies:
     "@actions/core": ^2.0.1
-    "@docker/actions-toolkit": ^0.71.0
+    "@docker/actions-toolkit": ^0.75.0
     "@eslint/compat": ^2.0.0
     "@eslint/eslintrc": ^3.3.3
     "@eslint/js": ^9.39.2
@@ -5486,7 +5521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-fetch-happen@npm:^15.0.1, make-fetch-happen@npm:^15.0.2":
+"make-fetch-happen@npm:^15.0.1, make-fetch-happen@npm:^15.0.3":
   version: 15.0.3
   resolution: "make-fetch-happen@npm:15.0.3"
   dependencies:
@@ -6134,14 +6169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proc-log@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "proc-log@npm:5.0.0"
-  checksum: c78b26ecef6d5cce4a7489a1e9923d7b4b1679028c8654aef0463b27f4a90b0946cd598f55799da602895c52feb085ec76381d007ab8dcceebd40b89c2f9dfe0
-  languageName: node
-  linkType: hard
-
-"proc-log@npm:^6.0.0":
+"proc-log@npm:^6.0.0, proc-log@npm:^6.1.0":
   version: 6.1.0
   resolution: "proc-log@npm:6.1.0"
   checksum: ac450ff8244e95b0c9935b52d629fef92ae69b7e39aea19972a8234259614d644402dd62ce9cb094f4a637d8a4514cba90c1456ad785a40ad5b64d502875a817
@@ -6891,7 +6919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tuf-js@npm:^4.0.0":
+"tuf-js@npm:^4.1.0":
   version: 4.1.0
   resolution: "tuf-js@npm:4.1.0"
   dependencies:
