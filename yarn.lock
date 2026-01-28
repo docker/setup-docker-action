@@ -71,6 +71,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@actions/core@npm:2.0.3"
+  dependencies:
+    "@actions/exec": ^2.0.0
+    "@actions/http-client": ^3.0.2
+  checksum: d0f7e9f5dbb1c52fa56c2208544a0d13bcb40946457d2c2bea5e51c6de257a6e8ec59259888a837ecf1af1f95509e7472cc5eecd403e97c5f05588d6eef10f8a
+  languageName: node
+  linkType: hard
+
 "@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
@@ -140,6 +150,16 @@ __metadata:
     tunnel: ^0.0.6
     undici: ^5.28.5
   checksum: 840ec7a4c224a3945d1958b56b01fb870ae19c1d1502b8f0d1a7c291bbe061aff50b6c3bbf6c09b6afa3b56386ec09ecd16029c6fcb3016fb9e21cd1ab5f49fc
+  languageName: node
+  linkType: hard
+
+"@actions/http-client@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@actions/http-client@npm:3.0.2"
+  dependencies:
+    tunnel: ^0.0.6
+    undici: ^6.23.0
+  checksum: 8a4e63499af87ba6248f364fc0dd8325945be51d9f765475d67b2e6ce56a56a6a01ddc2750b89e6112dc70e4679bb881d9526f7ce3bf8c9383a7a1488d248379
   languageName: node
   linkType: hard
 
@@ -3637,7 +3657,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docker-setup-docker@workspace:."
   dependencies:
-    "@actions/core": ^2.0.1
+    "@actions/core": ^2.0.3
     "@docker/actions-toolkit": ^0.71.0
     "@eslint/compat": ^2.0.0
     "@eslint/eslintrc": ^3.3.3
@@ -7001,6 +7021,13 @@ __metadata:
   dependencies:
     "@fastify/busboy": ^2.0.0
   checksum: a25b5462c1b6ffb974f5ffc492ffd64146a9983aad0cbda6fde65e2b22f6f1acd43f09beacc66cc47624a113bd0c684ffc60366102b6a21b038fbfafb7d75195
+  languageName: node
+  linkType: hard
+
+"undici@npm:^6.23.0":
+  version: 6.23.0
+  resolution: "undici@npm:6.23.0"
+  checksum: f0953920330375e76d1614381af07da9d7c21ad3244d0785b3f7bd4072635c20a1f432ef3a129baa3e4a92278ce32e9ea2ca8b5f0e0554a5739222af332c08fe
   languageName: node
   linkType: hard
 
