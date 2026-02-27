@@ -3,8 +3,8 @@ import path from 'path';
 import * as core from '@actions/core';
 import {parse} from 'csv-parse/sync';
 
-import {InstallSource} from '@docker/actions-toolkit/lib/docker/install';
-import {Util} from '@docker/actions-toolkit/lib/util';
+import {InstallSource} from '@docker/actions-toolkit/lib/docker/install.js';
+import {Util} from '@docker/actions-toolkit/lib/util.js';
 
 export interface Inputs {
   source: InstallSource;
