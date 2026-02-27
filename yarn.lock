@@ -71,6 +71,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/core@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@actions/core@npm:3.0.0"
+  dependencies:
+    "@actions/exec": ^3.0.0
+    "@actions/http-client": ^4.0.0
+  checksum: 79d472a597723ce6a8343c3eac994c2071c20f7cba428032a0cd97075c8b802678da4eddeb71d1e3b205c8b5a5a29b6906e1a39be07366ee5e090faa460be5a1
+  languageName: node
+  linkType: hard
+
 "@actions/exec@npm:^1.0.0, @actions/exec@npm:^1.1.1":
   version: 1.1.1
   resolution: "@actions/exec@npm:1.1.1"
@@ -86,6 +96,15 @@ __metadata:
   dependencies:
     "@actions/io": ^2.0.0
   checksum: 001e4139129fce56459c7fa3970d50e85dc9bffef5fe451312ff1277f1f18d553d221012a199d58b3a5c2198bd0c71b2060dd28e52ebfeaf5a91331347c93208
+  languageName: node
+  linkType: hard
+
+"@actions/exec@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@actions/exec@npm:3.0.0"
+  dependencies:
+    "@actions/io": ^3.0.2
+  checksum: 8a8c2d28088b0daf019c24abd2127e6694f7427f6f8b866cf7e9d1709dcdc3e15156f2f061977a814113c6f2f2368886f2a9cdf21631d2b9bf7ff22fc80e55e2
   languageName: node
   linkType: hard
 
@@ -143,6 +162,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@actions/http-client@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@actions/http-client@npm:4.0.0"
+  dependencies:
+    tunnel: ^0.0.6
+    undici: ^6.23.0
+  checksum: a3ee16f3b342bbb0bcf704fc49e1e9998f53b69702b8bde505f0f0d4909b1433296a1b79c3afb0267cbc376a496f78d64f21c01ac7b753c002552dbcd3938ac5
+  languageName: node
+  linkType: hard
+
 "@actions/io@npm:^1.0.1, @actions/io@npm:^1.1.1":
   version: 1.1.3
   resolution: "@actions/io@npm:1.1.3"
@@ -154,6 +183,13 @@ __metadata:
   version: 2.0.0
   resolution: "@actions/io@npm:2.0.0"
   checksum: afd29e777bedd8bb59143f12aa7c28e1112ce7aed2fed953fddc51833cbb88f0b4e379a6f3aece024c974227c01875fc0cd754a27e5953259d3a90fa3fbf0f68
+  languageName: node
+  linkType: hard
+
+"@actions/io@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@actions/io@npm:3.0.2"
+  checksum: 69c1d58f2b37f4a2248e6d727be900af21e69051c614e161132c6aa459a09654ef84b13b7007f7cc87c7bbaf74e2c37a1add97c76791db64eb810d6a3f4ad96e
   languageName: node
   linkType: hard
 
@@ -2319,7 +2355,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docker-setup-docker@workspace:."
   dependencies:
-    "@actions/core": ^2.0.1
+    "@actions/core": ^3.0.0
     "@docker/actions-toolkit": ^0.71.0
     "@eslint/js": ^9.39.3
     "@types/node": ^20.19.35
@@ -4817,6 +4853,13 @@ __metadata:
   dependencies:
     "@fastify/busboy": ^2.0.0
   checksum: a25b5462c1b6ffb974f5ffc492ffd64146a9983aad0cbda6fde65e2b22f6f1acd43f09beacc66cc47624a113bd0c684ffc60366102b6a21b038fbfafb7d75195
+  languageName: node
+  linkType: hard
+
+"undici@npm:^6.23.0":
+  version: 6.23.0
+  resolution: "undici@npm:6.23.0"
+  checksum: f0953920330375e76d1614381af07da9d7c21ad3244d0785b3f7bd4072635c20a1f432ef3a129baa3e4a92278ce32e9ea2ca8b5f0e0554a5739222af332c08fe
   languageName: node
   linkType: hard
 
