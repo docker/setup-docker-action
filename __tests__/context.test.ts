@@ -1,4 +1,4 @@
-import {beforeEach, describe, expect, test} from '@jest/globals';
+import {beforeEach, describe, expect, test} from 'vitest';
 import * as os from 'os';
 import * as path from 'path';
 
@@ -15,7 +15,7 @@ describe('getInputs', () => {
   });
 
   // prettier-ignore
-  test.each([
+  const cases: [number, Map<string, string>, context.Inputs][] = [
     [
       0,
       new Map<string, string>([
@@ -35,7 +35,7 @@ describe('getInputs', () => {
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       1,
@@ -59,7 +59,7 @@ describe('getInputs', () => {
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       2,
@@ -79,7 +79,7 @@ describe('getInputs', () => {
         setHost: true,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
     3,
@@ -101,7 +101,7 @@ describe('getInputs', () => {
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       4,
@@ -121,7 +121,7 @@ describe('getInputs', () => {
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       5,
@@ -142,7 +142,7 @@ describe('getInputs', () => {
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       6,
@@ -163,7 +163,7 @@ describe('getInputs', () => {
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       7,
@@ -183,7 +183,7 @@ describe('getInputs', () => {
         rootless: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       8,
@@ -203,7 +203,7 @@ describe('getInputs', () => {
         rootless: true,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
     [
       9,
@@ -226,10 +226,11 @@ describe('getInputs', () => {
         setHost: false,
         runtimeBasedir: path.join(os.homedir(), `setup-docker-action`),
         githubToken: '',
-      } as context.Inputs
+      }
     ],
-  ])(
-    '[%d] given %p as inputs, returns %p',
+  ];
+  test.each(cases)(
+    '[%d] given %o as inputs, returns %o',
     async (num: number, inputs: Map<string, string>, expected: context.Inputs) => {
       inputs.forEach((value: string, name: string) => {
         setInput(name, value);
