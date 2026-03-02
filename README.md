@@ -52,7 +52,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: docker/setup-docker-action@v4
+        uses: docker/setup-docker-action@v5
 ```
 
 ### Daemon configuration
@@ -74,7 +74,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: docker/setup-docker-action@v4
+        uses: docker/setup-docker-action@v5
         with:
           daemon-config: |
             {
@@ -102,7 +102,7 @@ jobs:
     steps:
       -
         name: Set up Docker
-        uses: docker/setup-docker-action@v4
+        uses: docker/setup-docker-action@v5
         env:
           LIMA_START_ARGS: --cpus 4 --memory 8
 ```
