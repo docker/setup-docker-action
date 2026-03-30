@@ -4,11 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      # ignore this dependency
-      # it seems a bug with dependabot as pining to commit sha should not
-      # trigger a new version similar to https://github.com/docker/buildx/pull/2222#issuecomment-1919092153
-      - dependency-name: "docker/actions-toolkit"
+    cooldown:
+      default-days: 2
+    groups:
+      crazy-max-dot-github:
+        patterns:
+          - "crazy-max/.github/*"
     labels:
       - "dependencies"
       - "bot"
@@ -16,6 +17,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 2
     allow:
       - dependency-type: "production"
     labels:
