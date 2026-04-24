@@ -2573,7 +2573,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 The following npm package may be included in this product:
 
- - handlebars@4.7.8
+ - handlebars@4.7.9
 
 This package contains the following license:
 
