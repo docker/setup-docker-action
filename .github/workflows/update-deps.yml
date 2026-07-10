@@ -1,0 +1,168 @@
+name: update-deps
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * *'
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    environment: update-deps # secrets are gated by this environment
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    strategy:
+      fail-fast: false
+      matrix:
+        dep:
+          - regctl
+          - undock
+    steps:
+      -
+        name: GitHub auth token from GitHub App
+        id: write-app
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          client-id: ${{ secrets.GHACTIONS_REPO_WRITE_APP_ID }}
+          private-key: ${{ secrets.GHACTIONS_REPO_WRITE_APP_PRIVATE_KEY }}
+          owner: docker
+          repositories: setup-docker-action
+          permission-contents: write
+          permission-pull-requests: write
+      -
+        name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          token: ${{ steps.write-app.outputs.token }}
+          fetch-depth: 0
+          persist-credentials: false
+      -
+        name: Update dependency
+        id: update
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          INPUT_DEP: ${{ matrix.dep }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const dep = core.getInput('dep', {required: true});
+
+            function escapeRegExp(value) {
+              return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function tsConstStringPattern(key) {
+              return new RegExp(`^(const ${escapeRegExp(key)} = ')([^']*)(';)$`, 'm');
+            }
+
+            async function readJsonFromActionsToolkit(relativePath) {
+              const response = await github.rest.repos.getContent({
+                owner: 'docker',
+                repo: 'actions-toolkit',
+                path: relativePath,
+                ref: 'main'
+              });
+              if (Array.isArray(response.data) || response.data.type !== 'file') {
+                throw new Error(`Expected ${relativePath} to be a file`);
+              }
+              return JSON.parse(Buffer.from(response.data.content, response.data.encoding).toString('utf8'));
+            }
+
+            async function readLatestTag(relativePath) {
+              const tag = (await readJsonFromActionsToolkit(relativePath))?.latest?.tag_name;
+              if (!tag) {
+                throw new Error(`Unable to resolve latest tag from ${relativePath}`);
+              }
+              return tag;
+            }
+
+            const dependencyConfigs = {
+              regctl: {
+                name: 'Regctl version',
+                branch: 'deps/regctl-version',
+                sourcePath: '.github/regclient-releases.json',
+                sourceUrl: 'https://github.com/docker/actions-toolkit/blob/main/.github/regclient-releases.json',
+                key: 'regctlDefaultVersion'
+              },
+              undock: {
+                name: 'Undock version',
+                branch: 'deps/undock-version',
+                sourcePath: '.github/undock-releases.json',
+                sourceUrl: 'https://github.com/docker/actions-toolkit/blob/main/.github/undock-releases.json',
+                key: 'undockDefaultVersion'
+              }
+            };
+
+            const config = dependencyConfigs[dep];
+            if (!config) {
+              core.setFailed(`Unknown dependency ${dep}`);
+              return;
+            }
+
+            const version = await readLatestTag(config.sourcePath);
+            const targetPath = 'src/main.ts';
+            const absolutePath = path.join(process.env.GITHUB_WORKSPACE, targetPath);
+            const content = fs.readFileSync(absolutePath, 'utf8');
+            const pattern = tsConstStringPattern(config.key);
+            const match = content.match(pattern);
+            if (!match) {
+              throw new Error(`Missing ${config.key} in ${targetPath}`);
+            }
+
+            const previousVersion = match[2];
+            const changed = previousVersion !== version;
+            if (changed) {
+              fs.writeFileSync(
+                absolutePath,
+                content.replace(pattern, `$1${version}$3`),
+                'utf8'
+              );
+              core.info(`New ${config.name} ${version} found`);
+            } else {
+              core.info(`No workspace changes needed for ${config.name}`);
+            }
+
+            core.info(`Resolved ${config.name} from ${config.sourceUrl}`);
+            core.setOutput('changed', String(changed));
+            core.setOutput('branch', config.branch);
+            core.setOutput('title', `chore(deps): update ${config.name} from ${previousVersion} to ${version}`);
+            core.setOutput('before', previousVersion);
+            core.setOutput('after', version);
+            core.setOutput('source-url', config.sourceUrl);
+      -
+        name: Build
+        if: steps.update.outputs.changed == 'true'
+        uses: docker/bake-action@6614cfa25eff9a0b2b2697efb0b6159e7680d584 # v7.2.0
+        with:
+          source: .
+          targets: build
+      -
+        name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          base: master
+          branch: ${{ steps.update.outputs.branch }}
+          token: ${{ steps.write-app.outputs.token }}
+          commit-message: ${{ steps.update.outputs.title }}
+          title: ${{ steps.update.outputs.title }}
+          signoff: true
+          sign-commits: true
+          delete-branch: true
+          body: |
+            This updates the pinned default in `src/main.ts` from `${{ steps.update.outputs.before }}` to `${{ steps.update.outputs.after }}` and refreshes generated `dist` content.
+
+            The source of truth for this update is ${{ steps.update.outputs.source-url }}.
