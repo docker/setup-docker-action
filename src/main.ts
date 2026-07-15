@@ -10,7 +10,7 @@ import {Install as UndockInstall} from '@docker/actions-toolkit/lib/undock/insta
 import * as context from './context.js';
 import * as stateHelper from './state-helper.js';
 
-const regctlDefaultVersion = 'v0.8.3';
+const regctlDefaultVersion = 'v0.11.5';
 const undockDefaultVersion = 'v0.10.0';
 
 actionsToolkit.run(
