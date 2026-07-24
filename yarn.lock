@@ -34,9 +34,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@actions/cache@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@actions/cache@npm:6.1.0"
+"@actions/cache@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@actions/cache@npm:6.2.0"
   dependencies:
     "@actions/core": "npm:^3.0.1"
     "@actions/exec": "npm:^3.0.0"
@@ -47,7 +47,7 @@ __metadata:
     "@azure/storage-blob": "npm:^12.31.0"
     "@protobuf-ts/runtime-rpc": "npm:^2.11.1"
     semver: "npm:^7.7.4"
-  checksum: 10/0cd89f335c1e89f514d56060110bfddc6ab1112ec0091533364c32aec2621896112cde71cfc4089b86d00f3b5478996088e4c4e0aba0aec32aae0afeb4921b3d
+  checksum: 10/b2b3d219d3458b6b7e8f47ff6a83a0566f0b3cd5b257e307636d2147f892e595ce8cecbc0675590a57d0eb4d4d73564d08d28753baa50934ad59a65cbee2d8fa
   languageName: node
   linkType: hard
 
@@ -436,12 +436,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docker/actions-toolkit@npm:^0.93.0":
-  version: 0.93.0
-  resolution: "@docker/actions-toolkit@npm:0.93.0"
+"@docker/actions-toolkit@npm:^0.94.0":
+  version: 0.94.0
+  resolution: "@docker/actions-toolkit@npm:0.94.0"
   dependencies:
     "@actions/artifact": "npm:^6.2.1"
-    "@actions/cache": "npm:^6.1.0"
+    "@actions/cache": "npm:^6.2.0"
     "@actions/core": "npm:^3.0.1"
     "@actions/exec": "npm:^3.0.0"
     "@actions/github": "npm:^9.1.1"
@@ -461,7 +461,7 @@ __metadata:
     semver: "npm:^7.8.5"
     tar-stream: "npm:^3.2.0"
     tmp: "npm:^0.2.7"
-  checksum: 10/31643db575faf865666247661007d6e5fc8bc2b737001a522879829fcbeeab7b11b886d2cc26d074a26814361ec8427484d7b94ad9155d52c41398a7dc27000e
+  checksum: 10/96f7b3e488dd50db0b77575e1a2bd7e92506b1a2695d5c31a57d361e4dc07871ef1a14a7ab87bf6fe27af2f817d34351c2e289446b126675a20d9776fe5ab8ce
   languageName: node
   linkType: hard
 
@@ -2887,7 +2887,7 @@ __metadata:
   resolution: "docker-setup-docker@workspace:."
   dependencies:
     "@actions/core": "npm:^3.0.1"
-    "@docker/actions-toolkit": "npm:^0.93.0"
+    "@docker/actions-toolkit": "npm:^0.94.0"
     "@eslint/js": "npm:^9.39.3"
     "@types/node": "npm:^24.11.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.56.1"
