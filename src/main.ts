@@ -99,7 +99,8 @@ actionsToolkit.run(
       return;
     }
     const install = new Install({
-      runDir: stateHelper.runDir
+      runDir: stateHelper.runDir,
+      rootless: core.getBooleanInput('rootless')
     });
     await install.tearDown();
   }
