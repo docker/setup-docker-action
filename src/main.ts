@@ -11,7 +11,7 @@ import * as context from './context.js';
 import * as stateHelper from './state-helper.js';
 
 const regctlDefaultVersion = 'v0.11.7';
-const undockDefaultVersion = 'v0.14.0';
+const undockDefaultVersion = 'v0.14.1';
 
 actionsToolkit.run(
   // main
