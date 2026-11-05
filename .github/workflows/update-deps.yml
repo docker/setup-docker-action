@@ -27,6 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         dep:
+          - docker
           - regctl
           - undock
     steps:
@@ -91,6 +92,12 @@ jobs:
             }
 
             const dependencyConfigs = {
+              docker: {
+                name: 'Docker version',
+                branch: 'deps/docker-version',
+                sourcePath: '.github/docker-releases.json',
+                sourceUrl: 'https://github.com/docker/actions-toolkit/blob/main/.github/docker-releases.json'
+              },
               regctl: {
                 name: 'Regctl version',
                 branch: 'deps/regctl-version',
@@ -113,22 +120,32 @@ jobs:
               return;
             }
 
-            const version = await readLatestTag(config.sourcePath);
-            const targetPath = 'src/main.ts';
+            const tag = await readLatestTag(config.sourcePath);
+            const version = dep === 'docker' ? tag.replace(/^docker-/, '') : tag;
+            const targetPath = dep === 'docker' ? '.github/workflows/ci.yml' : 'src/main.ts';
             const absolutePath = path.join(process.env.GITHUB_WORKSPACE, targetPath);
             const content = fs.readFileSync(absolutePath, 'utf8');
-            const pattern = tsConstStringPattern(config.key);
-            const match = content.match(pattern);
-            if (!match) {
-              throw new Error(`Missing ${config.key} in ${targetPath}`);
+            const replacements = dep === 'docker' ? [
+              {pattern: /^(  DOCKER_VERSION: )(v\S+)()$/m, version},
+              {pattern: /^(          - )(v\S+)()$/m, version},
+              {pattern: /^(          - type=image,tag=)(\S+)()$/m, version: version.replace(/^v/, '')}
+            ] : [{pattern: tsConstStringPattern(config.key), version}];
+            let updatedContent = content;
+            let previousVersion;
+            for (const replacement of replacements) {
+              const match = updatedContent.match(replacement.pattern);
+              if (!match) {
+                throw new Error(`Missing ${replacement.pattern} in ${targetPath}`);
+              }
+              previousVersion ??= match[2];
+              updatedContent = updatedContent.replace(replacement.pattern, (_, prefix, current, suffix) => `${prefix}${replacement.version}${suffix}`);
             }
 
-            const previousVersion = match[2];
-            const changed = previousVersion !== version;
+            const changed = updatedContent !== content;
             if (changed) {
               fs.writeFileSync(
                 absolutePath,
-                content.replace(pattern, `$1${version}$3`),
+                updatedContent,
                 'utf8'
               );
               core.info(`New ${config.name} ${version} found`);
@@ -143,9 +160,12 @@ jobs:
             core.setOutput('before', previousVersion);
             core.setOutput('after', version);
             core.setOutput('source-url', config.sourceUrl);
+            core.setOutput('description', dep === 'docker'
+              ? `This updates the pinned Docker version in \`${targetPath}\` from \`${previousVersion}\` to \`${version}\`, including the binary and image test matrix entries.`
+              : `This updates the pinned default in \`${targetPath}\` from \`${previousVersion}\` to \`${version}\` and refreshes generated \`dist\` content.`);
       -
         name: Build
-        if: steps.update.outputs.changed == 'true'
+        if: steps.update.outputs.changed == 'true' && matrix.dep != 'docker'
         uses: docker/bake-action@018cb6412ab401ebaa809aa5f85966b74628600f # v7.4.0
         with:
           source: .
@@ -163,6 +183,6 @@ jobs:
           sign-commits: true
           delete-branch: true
           body: |
-            This updates the pinned default in `src/main.ts` from `${{ steps.update.outputs.before }}` to `${{ steps.update.outputs.after }}` and refreshes generated `dist` content.
+            ${{ steps.update.outputs.description }}
 
             The source of truth for this update is ${{ steps.update.outputs.source-url }}.
