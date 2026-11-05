@@ -92,7 +92,8 @@ jobs:
             {
               "debug": true,
               "features": {
-                "containerd-snapshotter": true
+                "containerd-snapshotter": true,
+                "embedded-containerd": ${{ runner.os == 'Windows' }}
               }
             }
 
